@@ -3,38 +3,75 @@ import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm"
 
 class App extends React.Component {
-    state= {
-        todoList:[
+    state = {
+        todoList: [
             {
-        id: 1,
-        title: 'Morning Meditation',
-        completed: false,
-      }, 
-      { id: 2,
-        title: 'Study Course Work',
-        completed: false,
-      },
-      {
-        id: 3,
-        title: 'Work Out',
-        completed: false,
-         },
-      ]
-    };
+                id: 1,
+                title: 'Morning Meditation',
+                completed: false,
+            },
+            {
+                id: 2,
+                title: 'Study Course Work',
+                completed: false,
+            },
+            {
+                id: 3,
+                title: 'Work Out',
+                completed: false,
+            },
+        ],
+        id: '',
+        title:'',
+        completed: '',
 
-  render(){
-      console.log(this.state.todoList)
-      return(
-          <div className="App">
-            <div className="container">
-                <h2>Your Awesome Todo List</h2>
-                
-                <TodoList todoList={this.state.todoList} /> 
-                <TodoForm /> 
+    };
+    changeHandler = event=> {
+        this.setState({
+           [event.target.name]: event.target.value
+        })
+    }
+
+    addTask = event =>{
+        event.preventDefault()
+        this.setState({
+            todoList: [
+                ...this.state.todoList,
+                {
+                    id: Date.now(),
+                    title: this.state.title,
+                    completed: false,
+                }
+            ]
+        })
+    }
+
+    clearTaskAll= () => {
+        this.setState({
+            todoList: [],
+        })
+    }
+
+    render() {
+        console.log(this.state.todoList)
+        console.log(...this.state.todoList)
+        return (
+            <div className="App">
+                <div className="container">
+                    <h2>Your Awesome Todo List</h2>
+
+                    <TodoList todoList={this.state.todoList} />
+                    <TodoForm 
+                    title={this.state.title} 
+                    completed={this.state.completed} 
+                    changeHandler={this.changeHandler}
+                    addTask={this.addTask}
+                    />
+                    <button onClick={this.clearTaskAll} >Clear all Task</button>
+                </div>
             </div>
-          </div>
-      );
-  }
+        );
+    }
 }
 
 

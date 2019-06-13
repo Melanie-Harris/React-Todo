@@ -2,6 +2,7 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import "./Todo.css";
+import Todo from "./Todo";
 
 const TodoList = (props)=>{
     console.log(props)
@@ -9,10 +10,8 @@ const TodoList = (props)=>{
         return (
             <div>
                 {props.todoList.map(todo => (
-                    // <div key={todo.id}>
-                    //     {todo.title}
-                    // </div>
-                    <todo key={todo.id} title={todo.task} />
+                    
+                    <Todo key={todo.id} title={todo.title} />
                 ))}
                 
             </div>

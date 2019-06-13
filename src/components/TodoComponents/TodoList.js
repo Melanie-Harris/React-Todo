@@ -11,7 +11,12 @@ const TodoList = (props)=>{
             <div>
                 {props.todoList.map(todo => (
                     
-                    <Todo key={todo.id} title={todo.title} />
+                    <Todo 
+                    key={todo.id} 
+                    title={todo} 
+                    toggleButton={props.toggleButton}
+                    
+                    />
                 ))}
                 
             </div>
@@ -21,21 +26,5 @@ const TodoList = (props)=>{
 
 
 export default TodoList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -1,11 +1,15 @@
-.todoForm{
+.todoForm {
     display: flex;
 }
 
-.btn{
-    flex:1;
+.btn {
+    flex: 1;
 }
 
-.inputField{
-    flex:10;
+.inputField {
+    flex: 10;
+}
+
+.todo-lines {
+    text-decoration: line-through;
 }

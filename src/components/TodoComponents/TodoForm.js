@@ -12,7 +12,7 @@ const TodoForm = (props)=>{
                 onChange={props.changeHandler}
                 value={props.title}
                 />
-                <button type="submit" value="Submit">Add Task</button>
+                <button  className="add-btn" type="submit" value="Submit">Add Task</button>
                 {/* <button type="submit" value="Delete">Clear</button> */}
             </form>
            

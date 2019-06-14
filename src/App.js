@@ -81,19 +81,29 @@ toggleButton= (itemId)=> {
             <div className="App">
                 <div className="container">
                     <h2>Your Awesome Todo List</h2>
+                    <span className="heading-instructions"> 1)Click the "Clear All Task" button to clear the The first three examples. </span><br />
+                    <span className="heading-instructions"> 2)Click on completed task to mark them as done. </span><br />
+                    <span className="heading-instructions"> 3)You may then clear "Clear Completed Task" to clear them from your list </span>
+                    <p />
+                    <br />
+                    
 
                     <TodoList 
                     todoList={this.state.todoList} 
                     toggleButton={this.toggleButton}
                     />
+                    <br />
+                    <br />
+                    <br />
                     <TodoForm 
                     title={this.state.title} 
                     completed={this.state.completed} 
                     changeHandler={this.changeHandler}
                     addTask={this.addTask}
                     />
-                    <button onClick={this.clearTaskAll} >Clear ALL Task</button>
-                    <button onClick={this.clearCompleted} >Clear Completed</button>
+                    <button className="clear-completed" onClick={this.clearCompleted} >Clear Completed Task</button>
+                    <button className="clear-all-btn" onClick={this.clearTaskAll} >Clear All Task</button>
+                    
                 </div>
             </div>
         );
@@ -103,18 +113,6 @@ toggleButton= (itemId)=> {
 
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

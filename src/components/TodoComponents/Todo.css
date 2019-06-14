@@ -13,3 +13,20 @@
 .todo-lines {
     text-decoration: line-through;
 }
+
+.clear-all-btn {
+    background-color: rgb(208, 97, 97);
+    color: white;
+}
+
+.clear-completed {
+    background-color: pink;
+}
+
+.add-btn {
+    background-color: pink;
+}
+
+.heading-instructions{
+    /* border-bottom: 2px dotted grey; */
+}

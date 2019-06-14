@@ -1,70 +1,119 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
-import TodoForm from './components/TodoComponents/TodoForm';
-import TodoList from './components/TodoComponents/TodoList';
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm"
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  state= {
-    tasks:[
-      {
-        id: 1,
-        title: 'Morning Meditation',
-        completed: false,
-      }, 
-      { id: 2,
-        title: 'Study Course Work',
-        completed: false,
-      },
-      {
-        id: 3,
-        title: 'Work out',
-        completed: false,
-      },
-    ]
-};
+    state = {
+        todoList: [
+            {
+                id: 1,
+                title: 'Morning Meditation',
+                completed: false,
+            },
+            {
+                id: 2,
+                title: 'Study Course Work',
+                completed: false,
+            },
+            {
+                id: 3,
+                title: 'Work Out',
+                completed: false,
+            },
+        ],
+        id: '',
+        title:'',
+        completed: '',
 
-//------------------- Completes toggle
-isCompleted= (id) =>{
-  this.setState({tasks: this.state.tasks.map(task => {
-    if(task.id === id){
-      task.completed = !task.completed;
-    }
-    return task;
-  })})
-};
-
-//------------------- Clears completed task
-clearTask = () =>{
-  this.setState({task: [...this.state.tasks.filter(task => task.completed === false)]});
-};
-
-
-//-------------------  Adds to Todo list
-addTask = (title) => {
-  const newTask ={
-    id: Date.now,
-    title,
-    completed: false,
-
-  }
-  this.setState({tasks: [...this.state.tasks, newTask]})
+    };
+toggleButton= (itemId)=> {
+    this.setState({
+        todoList: this.state.todoList.map(objectInArray =>{
+            if (itemId === objectInArray.id){
+                return{
+                    ...objectInArray,
+                    completed: !objectInArray.completed
+                }
+            }
+            return objectInArray;
+        })
+    })
 }
 
-// ------------------ Render
-render(){
-  return(
-    <div className="app">
-      <div className="container">
-        <h1>Todo App</h1>
-        <TodoForm addTask= {this.addTask} clearTask={this.clearTask} />
-        <TodoList tasks={this.state.tasks} isCompleted={this.isCompleted} />
-      </div>
-    </div>
-  )
-};
-};
+    changeHandler = event=> {
+        this.setState({
+           [event.target.name]: event.target.value
+        })
+    }
+
+    addTask = event =>{
+        event.preventDefault()
+        this.setState({
+            todoList: [
+                ...this.state.todoList,
+                {
+                    id: Date.now(),
+                    title: this.state.title,
+                    completed: false,
+                }
+            ]
+        })
+    }
+
+
+    clearTaskAll= (event) => {
+        console.log(event)
+        this.setState({
+            todoList: [],
+        })
+    }
+
+    clearCompleted= (event)=>{
+        this.setState({
+            todoList: this.state.todoList.filter(item => !item.completed),
+        })
+    }
+
+    render() {
+        console.log(this.state.todoList)
+        console.log(...this.state.todoList)
+        return (
+            <div className="App">
+                <div className="container">
+                    <h2>Your Awesome Todo List</h2>
+                    <span className="heading-instructions"> 1)Click the "Clear All Task" button to clear the the first three examples. </span><br />
+                    <span className="heading-instructions"> 2)Click on completed task to mark them as done. </span><br />
+                    <span className="heading-instructions"> 3)You may then clear "Clear Completed Task" to clear them from your list </span>
+        
+                    <p />
+                    <br />
+                    
+
+                    <TodoList 
+                    todoList={this.state.todoList} 
+                    toggleButton={this.toggleButton}
+                    />
+                    <br />
+                    <br />
+                    <br />
+                    <TodoForm 
+                    title={this.state.title} 
+                    completed={this.state.completed} 
+                    changeHandler={this.changeHandler}
+                    addTask={this.addTask}
+                    />
+                    <button className="clear-completed" onClick={this.clearCompleted} >Clear Completed Task</button>
+                    <button className="clear-all-btn" onClick={this.clearTaskAll} >Clear All Task</button>
+                    
+                </div>
+            </div>
+        );
+    }
+}
+
+
 
 export default App;
+
+
+

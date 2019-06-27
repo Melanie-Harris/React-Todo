@@ -1,52 +1,53 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList";
-import TodoForm from "./components/TodoComponents/TodoForm"
+import TodoForm from "./components/TodoComponents/TodoForm";
+import "./App.css";
 
 class App extends React.Component {
     state = {
         todoList: [
-            {
-                id: 1,
-                title: 'Morning Meditation',
-                completed: false,
-            },
-            {
-                id: 2,
-                title: 'Study Course Work',
-                completed: false,
-            },
-            {
-                id: 3,
-                title: 'Work Out',
-                completed: false,
-            },
+            // {
+            //     id: 1,
+            //     title: 'Morning Meditation',
+            //     completed: false,
+            // },
+            // {
+            //     id: 2,
+            //     title: 'Study Course Work',
+            //     completed: false,
+            // },
+            // {
+            //     id: 3,
+            //     title: 'Work Out',
+            //     completed: false,
+            // },
         ],
         id: '',
-        title:'',
+        title: '',
         completed: '',
 
     };
-toggleButton= (itemId)=> {
-    this.setState({
-        todoList: this.state.todoList.map(objectInArray =>{
-            if (itemId === objectInArray.id){
-                return{
-                    ...objectInArray,
-                    completed: !objectInArray.completed
-                }
-            }
-            return objectInArray;
-        })
-    })
-}
-
-    changeHandler = event=> {
+    toggleButton = (itemId) => {
         this.setState({
-           [event.target.name]: event.target.value
+            todoList: this.state.todoList.map(objectInArray => {
+                if (itemId === objectInArray.id) {
+                    return {
+                        ...objectInArray,
+                        completed: !objectInArray.completed
+                    }
+                }
+                return objectInArray;
+            })
         })
     }
 
-    addTask = event =>{
+    changeHandler = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    addTask = event => {
         event.preventDefault()
         this.setState({
             todoList: [
@@ -61,14 +62,14 @@ toggleButton= (itemId)=> {
     }
 
 
-    clearTaskAll= (event) => {
+    clearTaskAll = (event) => {
         console.log(event)
         this.setState({
             todoList: [],
         })
     }
 
-    clearCompleted= (event)=>{
+    clearCompleted = (event) => {
         this.setState({
             todoList: this.state.todoList.filter(item => !item.completed),
         })
@@ -81,31 +82,35 @@ toggleButton= (itemId)=> {
             <div className="App">
                 <div className="container">
                     <h2>Your Awesome Todo List</h2>
-                    <span className="heading-instructions"> 1)Click the "Clear All Task" button to clear the the first three examples. </span><br />
-                    <span className="heading-instructions"> 2)Click on completed task to mark them as done. </span><br />
-                    <span className="heading-instructions"> 3)You may then clear "Clear Completed Task" to clear them from your list </span>
-        
                     <p />
                     <br />
-                    
 
-                    <TodoList 
-                    todoList={this.state.todoList} 
-                    toggleButton={this.toggleButton}
+                    <h3>Task:</h3>
+                    <TodoList
+                        todoList={this.state.todoList}
+                        toggleButton={this.toggleButton}
                     />
                     <br />
                     <br />
                     <br />
-                    <TodoForm 
-                    title={this.state.title} 
-                    completed={this.state.completed} 
-                    changeHandler={this.changeHandler}
-                    addTask={this.addTask}
+                    <TodoForm
+                        title={this.state.title}
+                        completed={this.state.completed}
+                        changeHandler={this.changeHandler}
+                        addTask={this.addTask}
                     />
-                    <button className="clear-completed" onClick={this.clearCompleted} >Clear Completed Task</button>
+
+                    <br /><br />
+                    <button className="clear-completed" onClick={this.clearCompleted} >Clear Checked Task</button> 
+                    &nbsp;&nbsp;&nbsp;
                     <button className="clear-all-btn" onClick={this.clearTaskAll} >Clear All Task</button>
-                    
                 </div>
+                <br /><br /><br />
+                <span className="heading-instructions"> 1)Write task in input field then press "add task" to post </span><br />
+                <span className="heading-instructions"> 2)Click on task you want removed from your list after completing. You will see it striked out </span><br />
+                <span className="heading-instructions"> 3)Click "clear checked task" to remove completed task </span> <br />
+                <span className="heading-instructions"> 4)Click "clear all task" to remove everything from your list to remove completed task </span>
+
             </div>
         );
     }

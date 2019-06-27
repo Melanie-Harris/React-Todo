@@ -1,0 +1,38 @@
+.App {
+    background-color: #f3edd4ec;
+    width: auto; 
+    height: auto; 
+    text-align: center;
+    /* margin-left: 20%; */
+    margin-top: 10%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    background-image: url("https://images.pexels.com/photos/1410226/pexels-photo-1410226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.container {
+    border: 1px solid #ffffff;
+    background-color: white;
+    width: 50%;
+    margin-left: 25%;
+    opacity: 0.97;
+    padding-bottom: 15px;
+    /* margin-bottom: 40%; */
+}
+
+span {
+    background-color: white;
+    opacity: 0.8;
+}
+
+/* .clear-completed {
+    padding: 1% 2% 1% 2%;
+    font-size: 12px;
+    border-radius: 30px;
+}
+
+.clear-all-btn {
+    padding: 1% 2% 1% 2%;
+    border-radius: 30px;
+    font-size: 12px;
+} */

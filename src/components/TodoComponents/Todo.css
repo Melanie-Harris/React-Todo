@@ -17,16 +17,40 @@
 .clear-all-btn {
     background-color: rgb(208, 97, 97);
     color: white;
+    padding: 1% 2% 1% 2%;
+    border-radius: 30px;
+    font-size: 12px;
 }
 
 .clear-completed {
     background-color: pink;
+    padding: 1% 2% 1% 2%;
+    border-radius: 30px;
+    font-size: 12px;
 }
 
 .add-btn {
     background-color: pink;
+    padding: 1% 2% 1% 2%;
+    border-radius: 30px;
+    font-size: 12px;
 }
 
-.heading-instructions{
+button {
+    cursor: pointer;
+}
+
+/* button:hover {
+    background-color: yellow;
+} */
+
+.heading-instructions {
     /* border-bottom: 2px dotted grey; */
+}
+
+input {
+    width: 11rem;
+    height: 1.5rem;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
 }

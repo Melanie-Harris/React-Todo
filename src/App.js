@@ -79,38 +79,40 @@ class App extends React.Component {
         console.log(this.state.todoList)
         console.log(...this.state.todoList)
         return (
-            <div className="App">
-                <div className="container">
-                    <h2>Your Awesome Todo List</h2>
-                    <p />
-                    <br />
+            <div className="FullContainer">
+                <div className="App">
+                    <div className="container">
+                        <h2>Your Awesome Todo List</h2>
+                        <p />
+                        <br />
 
-                    <h3>Task:</h3>
-                    <TodoList
-                        todoList={this.state.todoList}
-                        toggleButton={this.toggleButton}
-                    />
-                    <br />
-                    <br />
-                    <br />
-                    <TodoForm
-                        title={this.state.title}
-                        completed={this.state.completed}
-                        changeHandler={this.changeHandler}
-                        addTask={this.addTask}
-                    />
+                        <h3>Task:</h3>
+                        <TodoList
+                            todoList={this.state.todoList}
+                            toggleButton={this.toggleButton}
+                        />
+                        <br />
+                        <br />
+                        <br />
+                        <TodoForm
+                            title={this.state.title}
+                            completed={this.state.completed}
+                            changeHandler={this.changeHandler}
+                            addTask={this.addTask}
+                        />
 
-                    <br /><br />
-                    <button className="clear-completed" onClick={this.clearCompleted} >Clear Checked Task</button> 
-                    &nbsp;&nbsp;&nbsp;
+                        <br /><br />
+                        <button className="clear-completed" onClick={this.clearCompleted} >Clear Checked Task</button>
+                        &nbsp;&nbsp;&nbsp;
                     <button className="clear-all-btn" onClick={this.clearTaskAll} >Clear All Task</button>
-                </div>
-                <br /><br /><br />
-                <span className="heading-instructions"> 1)Write task in input field then press "add task" to post </span><br />
-                <span className="heading-instructions"> 2)Click on task you want removed from your list after completing. You will see it striked out </span><br />
-                <span className="heading-instructions"> 3)Click "clear checked task" to remove completed task </span> <br />
-                <span className="heading-instructions"> 4)Click "clear all task" to remove everything from your list to remove completed task </span>
+                    </div>
+                    <br /><br /><br />
+                    <span className="heading-instructions"> 1)Write your task in the input field, then press "add task" to post. </span><br /><br />
+                    <span className="heading-instructions"> 2)After completing a task, click on that task to remove it from your list. You will then see the completed task striked out. </span><br /><br />
+                    <span className="heading-instructions"> 3)Click "clear checked task" to permanently remove task you've completed. </span> <br /><br />
+                    <span className="heading-instructions"> 4)Click "clear all task" to start a new list. <strong>Caution</strong>, this will remove everything from your list.</span>
 
+                </div>
             </div>
         );
     }

@@ -1,12 +1,21 @@
+.FullContainer {
+    background-color: grey;
+    
+}
+
 .App {
     background-color: #f3edd4ec;
-    width: auto; 
-    height: auto; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    height: 100%;
     text-align: center;
     /* margin-left: 20%; */
-    margin-top: 10%;
-    padding-top: 4%;
-    padding-bottom: 4%;
+    /* margin-top: 10%; */
+    padding-top: 10%;
+    padding-bottom: 60%;
     background-image: url("https://images.pexels.com/photos/1410226/pexels-photo-1410226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
 
@@ -16,8 +25,10 @@
     width: 50%;
     margin-left: 25%;
     opacity: 0.97;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
+    /* padding: 30px */
     /* margin-bottom: 40%; */
+   
 }
 
 span {

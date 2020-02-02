@@ -1,3 +1,26 @@
+
+body{
+background-image: url("../../img3.jpg");
+
+  /* Full height */
+  height: 850px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container{
+    background-color: rgba(255, 255, 255, 0.885);
+    border: 5px solid rgba(238, 204, 189, 0.844);
+    padding: 40px;
+    text-align: center;
+    width:60%;
+    margin-left: 17%;
+    margin-top: 6%;
+}
+
 .todoForm {
     display: flex;
 }
@@ -29,4 +52,10 @@
 
 .heading-instructions{
     /* border-bottom: 2px dotted grey; */
+    /* margin:40px 0px; */
 }
+
+.text-todo-list{
+    font-size: 100px;
+}
+

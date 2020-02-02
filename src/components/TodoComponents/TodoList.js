@@ -11,7 +11,7 @@ const TodoList = (props)=>{
             <div>
                 {props.todoList.map(todo => (
                     
-                    <Todo 
+                    <Todo
                     key={todo.id} 
                     title={todo} 
                     toggleButton={props.toggleButton}
